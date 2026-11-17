@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>Borno-লিপি — Smart OCR Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1120;--panel:#111b2d;--panel2:#162238;--line:#26364f;--text:#edf4ff;--muted:#91a2bc;--cyan:#50e3c2;--blue:#6d8cff;--pink:#c28bff;--danger:#ff7585}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#172c48 0,transparent 35%),radial-gradient(ellipse at 90% 10%,#24204a 0,transparent 32%),var(--bg);color:var(--text);font-family:'DM Sans','Hind Siliguri',sans-serif;min-height:100vh}button,select,textarea{font:inherit}button{cursor:pointer}.bn{font-family:'Hind Siliguri',sans-serif}.wrap{max-width:1180px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0 28px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--cyan),#6d8cff);display:grid;place-items:center;color:#091321;font-weight:900;font-size:23px;box-shadow:0 8px 30px #50e3c233}.brand h1{font-size:21px;margin:0;letter-spacing:-.6px}.brand p{margin:2px 0 0;color:var(--muted);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}.topright{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--line);padding:9px 13px;border-radius:99px;color:#b7c8df;font-size:12px}.hero{text-align:center;padding:30px 0 34px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #50e3c244;background:#50e3c20d;color:var(--cyan);padding:7px 12px;border-radius:99px;font-size:12px}.dot{width:7px;height:7px;background:var(--cyan);border-radius:50%;box-shadow:0 0 12px var(--cyan)}.hero h2{font-size:clamp(32px,5vw,55px);letter-spacing:-2px;line-height:1.08;margin:18px 0 12px}.gradient{background:linear-gradient(90deg,var(--cyan),#9caaff,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:650px;margin:auto;line-height:1.7;font-size:14px}.workspace{display:grid;grid-template-columns: .9fr 1.1fr;gap:18px}.card{background:linear-gradient(180deg,#142137ee,#101a2bee);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 18px 55px #0003;min-width:0}.cardhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.cardhead h3{margin:0;font-size:16px}.sub{font-size:11px;color:var(--muted)}.drop{border:1.5px dashed #405675;border-radius:17px;min-height:230px;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;position:relative;background:#0c1627;transition:.2s;overflow:hidden}.drop.drag{border-color:var(--cyan);background:#50e3c20d}.drop img{max-width:100%;max-height:280px;object-fit:contain;border-radius:10px}.dropcontent .uploadicon{width:56px;height:56px;border-radius:18px;margin:0 auto 13px;background:#50e3c21a;color:var(--cyan);display:grid;place-items:center;font-size:25px}.dropcontent strong{display:block;font-size:14px}.dropcontent span{display:block;color:var(--muted);font-size:12px;margin-top:7px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn{border:1px solid var(--line);background:#1a2941;color:var(--text);padding:11px 14px;border-radius:12px;font-size:12px;font-weight:700;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:#6682ad}.btn.primary{background:linear-gradient(100deg,#50e3c2,#78a1ff);color:#071321;border:0}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.btn.small{padding:8px 11px}.field{margin-top:17px}.field label{display:block;font-size:11px;color:#aabbd2;margin-bottom:8px;font-weight:700}.select{width:100%;padding:12px;background:#0c1627;border:1px solid var(--line);border-radius:11px;color:var(--text);outline:none}.hint{font-size:11px;color:var(--muted);line-height:1.6;margin-top:13px}.progress{height:6px;background:#25344b;border-radius:99px;overflow:hidden;margin-top:14px;display:none}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .25s}.status{font-size:11px;color:var(--muted);margin-top:9px;min-height:16px}.resulthead{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.resulthead h3{margin:0;font-size:16px}.resulttools{display:flex;gap:7px;flex-wrap:wrap}textarea{width:100%;min-height:390px;resize:vertical;background:#0a1424;border:1px solid var(--line);border-radius:14px;padding:17px;color:#e7efff;line-height:1.8;font-size:14px;outline:none;font-family:'Hind Siliguri','DM Sans',sans-serif}textarea:focus{border-color:#6d8cff}.stats{display:flex;gap:15px;color:var(--muted);font-size:11px;margin-top:10px}.stats b{color:#dce8fa}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.feature{border:1px solid var(--line);background:#111b2d99;border-radius:15px;padding:15px}.feature strong{font-size:12px;display:block;margin:7px 0 4px}.feature p{font-size:11px;color:var(--muted);margin:0;line-height:1.5}.feature i{font-style:normal;color:var(--cyan);font-size:18px}.dev{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.dev h3{margin:0 0 10px}.dev p{font-size:12px;color:#a6b7ce;line-height:1.8;margin:0}.dev .card{padding:22px}.devtag{color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:1.5px;margin-bottom:10px}.devname{font-size:23px;font-weight:800;letter-spacing:-.7px}.devlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.devlinks a{color:#c5d5ee;text-decoration:none;border:1px solid var(--line);padding:8px 11px;border-radius:9px;font-size:11px}.devlinks a:hover{border-color:var(--cyan)}footer{text-align:center;color:#72839d;font-size:11px;padding:28px 0 12px;border-top:1px solid #24334a;margin-top:28px}.footerbrand{color:#cbd8ea;font-weight:700}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#eafcf8;color:#0b1824;padding:11px 16px;border-radius:12px;font-size:12px;font-weight:700;transition:.25s;z-index:9}.toast.show{opacity:1;transform:translate(-50%,0)}.hidden{display:none!important}@media(max-width:850px){.workspace{grid-template-columns:1fr}.dev{grid-template-columns:1fr}.hero{padding-top:18px}}@media(max-width:560px){.wrap{padding:15px}.top{align-items:flex-start}.pill{display:none}.hero h2{letter-spacing:-1.2px}.card{padding:15px}.features{grid-template-columns:1fr}.resulttools{width:100%}.resulttools .btn{flex:1}.drop{min-height:200px}}
+
+.floating-dev{position:fixed;right:24px;bottom:24px;z-index:20;border:1px solid #50e3c277;background:linear-gradient(120deg,#50e3c2,#7898ff);color:#071321;border-radius:999px;padding:13px 18px;font-weight:800;font-size:12px;box-shadow:0 12px 35px #0007;display:flex;align-items:center;gap:9px}
+.floating-dev:hover{transform:translateY(-3px);box-shadow:0 16px 40px #0009}
+body.developer-mode{background:radial-gradient(ellipse at 15% 0%,#172c48 0,transparent 35%),var(--bg)}\n#developerPage{max-width:1000px;margin:0 auto;padding:28px 24px 70px;min-height:100vh}
+.dev-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:25px}
+.dev-hero{padding:38px 30px;border:1px solid var(--line);border-radius:24px;background:radial-gradient(ellipse at 90% 0%,#39316a 0,transparent 42%),linear-gradient(135deg,#152943,#111a2c)}
+.dev-hero .devname{font-size:clamp(30px,6vw,48px);font-weight:800;letter-spacing:-1.5px}
+.dev-hero p{max-width:680px;color:#aebed4;line-height:1.8;font-size:14px}
+.dev-badge{display:inline-block;color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:2px;margin-bottom:12px}
+.dev-tabs{display:flex;gap:9px;margin:18px 0}
+.dev-tab{border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:#142137;color:#cbd9ed;font-weight:700;font-size:12px}
+.dev-tab.active{background:var(--cyan);border-color:var(--cyan);color:#071321}
+.dev-bio{border:1px solid var(--line);background:#111b2d;border-radius:20px;padding:25px;line-height:1.95;color:#d1deef;font-size:14px;min-height:220px}
+.dev-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.dev-links a{color:#d6e5fa;text-decoration:none;border:1px solid var(--line);padding:11px 15px;border-radius:11px;font-size:12px}
+.dev-links a:hover{border-color:var(--cyan)}
+@media(max-width:560px){.floating-dev{right:14px;bottom:14px;padding:12px 15px}#developerPage{padding:18px 14px 70px}.dev-hero{padding:25px 20px}.dev-bio{padding:18px}}
+
+</style>
+</head>
+<body>
+<div class="wrap" id="appPage">
+<header class="top">
+ <div class="brand"><div class="logo">ব</div><div><h1 class="bn">Borno-লিপি</h1><p>Smart OCR Studio</p></div></div>
+ <div class="topright"><span class="pill">বাংলা + English</span><span class="pill">Free · Browser based</span><span class="pill" id="visitorPill">● Live visitors: <b id="visitorCount">—</b></span></div>
+</header>
+<section class="hero">
+ <span class="eyebrow"><span class="dot"></span> YOUR WORDS, DIGITIZED</span>
+ <h2>ছবি থেকে লেখা,<br><span class="gradient">এক ক্লিকেই।</span></h2>
+ <p class="bn">বাংলা ও ইংরেজি ছবির লেখা সহজেই টেক্সটে রূপান্তর করুন। ছবি আপলোড করুন অথবা ক্যামেরা ব্যবহার করুন, তারপর কপি, এডিট কিংবা ডাউনলোড করুন।</p>
+</section>
+<main class="workspace">
+ <section class="card">
+  <div class="cardhead"><h3>01 / Image input</h3><span class="sub">UPLOAD OR CAPTURE</span></div>
+  <div class="drop" id="drop">
+   <div class="dropcontent" id="dropcontent"><div class="uploadicon">↥</div><strong>Drop an image here</strong><span>or choose a file from your device</span><div style="margin-top:15px"><button class="btn primary" id="chooseBtn">Choose image</button></div><span>PNG · JPG · JPEG · WEBP</span></div>
+   <img id="preview" class="hidden" alt="Selected image preview">
+  </div>
+  <input id="fileInput" type="file" accept="image/*" hidden>
+  <div class="actions"><button class="btn" id="cameraBtn">◎ Live camera</button><button class="btn" id="removeBtn">Remove image</button></div>
+  <div id="cameraBox" class="hidden" style="margin-top:13px"><video id="video" autoplay playsinline style="width:100%;border-radius:12px;background:#050a12"></video><div class="actions"><button class="btn primary" id="captureBtn">Capture photo</button><button class="btn" id="stopCameraBtn">Close camera</button></div></div>
+  <div class="field"><label for="language">OCR LANGUAGE</label><select id="language" class="select"><option value="ben+eng">বাংলা + English (Recommended)</option><option value="ben">বাংলা</option><option value="eng">English</option></select></div>
+  <div class="actions"><button class="btn primary" id="ocrBtn" disabled>✦ Extract text</button></div>
+  <div class="progress" id="progress"><div class="bar" id="bar"></div></div><div class="status" id="status" aria-live="polite">Choose an image to get started.</div>
+  <p class="hint">প্রথমবার OCR চালালে ভাষার ডেটা ইন্টারনেট থেকে লোড হবে। এরপর একই ব্রাউজারে কিছু ডেটা ক্যাশ হতে পারে। কোনো নির্দিষ্ট পৃষ্ঠা বা ছবির সংখ্যা-সীমা নেই; তবে ডিভাইসের মেমোরি ও ব্রাউজারের সক্ষমতা প্রযোজ্য।</p>
+ </section>
+ <section class="card">
+  <div class="resulthead"><h3>02 / Extracted text</h3><div class="resulttools"><button class="btn small" id="copyBtn">Copy</button><button class="btn small" id="txtBtn">↓ TXT</button><button class="btn small" id="pdfBtn">↓ PDF</button></div></div>
+  <textarea id="output" placeholder="আপনার OCR করা লেখা এখানে দেখা যাবে… আপনি চাইলে এখানেই লেখা সম্পাদনা করতে পারবেন।" spellcheck="false"></textarea>
+  <div class="stats"><span>Characters: <b id="chars">0</b></span><span>Words: <b id="words">0</b></span><span id="editState">Editable text</span></div>
+  <p class="hint">Tip: OCR ফলাফল শতভাগ নির্ভুল নাও হতে পারে। ডাউনলোডের আগে বানান ও ফরম্যাট একবার দেখে নিন। PDF-এ আপনার Borno-লিপি watermark ও ওয়েবসাইটের ঠিকানা থাকবে।</p>
+ </section>
+</main>
+<section class="features">
+ <div class="feature"><i>⌁</i><strong>Bangla + English OCR</strong><p>একই ছবিতে বাংলা ও ইংরেজি লেখা শনাক্ত করার সুবিধা।</p></div>
+ <div class="feature"><i>◉</i><strong>Camera & Upload</strong><p>ডিভাইসের ক্যামেরা দিয়ে ছবি তুলুন অথবা ফাইল আপলোড করুন।</p></div>
+ <div class="feature"><i>⇩</i><strong>Export your way</strong><p>লেখা কপি করুন, এডিট করুন, TXT বা watermark-সহ PDF নিন।</p></div>
+</section>
+
+<footer><span class="footerbrand bn">Borno-লিপি</span> · Crafted by Alpha.HR<br><span id="siteUrl">Your website URL</span> · © <span id="year"></span> All rights reserved.</footer>
+</div>
+
+<button class="floating-dev" id="openDeveloper" type="button"><span>✦</span> Developer</button>
+<section id="developerPage" class="hidden" aria-label="Developer profile">
+  <div class="dev-nav">
+    <div class="brand"><div class="logo">ব</div><div><h1 class="bn">Borno-লিপি</h1><p>DEVELOPER PROFILE</p></div></div>
+    <button class="btn" id="backToApp" type="button">← Back to OCR</button>
+  </div>
+  <div class="dev-hero">
+    <div class="dev-badge">THE CREATOR · ALPHA.HR</div>
+    <div class="devname">Alpha.HR</div>
+    <p>Software Developer · Technology Enthusiast · Building modern digital solutions.</p>
+    <div class="dev-links">
+      <a href="https://github.com/alpha-hr-bd" target="_blank" rel="noopener">GitHub Profile ↗</a>
+      <a href="https://github.com/alpha-hr-bd" target="_blank" rel="noopener">Projects ↗</a>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <div class="cardhead"><h3>About the Developer</h3><span class="sub">ENGLISH / বাংলা</span></div>
+    <div class="dev-tabs">
+      <button class="dev-tab active" id="readEnglish" type="button">Read English</button>
+      <button class="dev-tab" id="readBangla" type="button">বাংলা পড়ুন</button>
+    </div>
+    <div class="dev-bio" id="developerBio" lang="en">I am a passionate Software Developer and Technology Enthusiast with a strong interest in building modern, innovative, and user-focused digital solutions. My areas of interest include Web Development, Software Engineering, Artificial Intelligence (AI), Machine Learning, Mobile Application Development, Cybersecurity, Networking, Cloud Computing, Database Management, and UI/UX Design. I enjoy working with technologies such as HTML, CSS, JavaScript, PHP, Laravel, Node.js, Firebase, and MySQL. I actively explore new technologies, develop personal projects, and continuously improve my technical skills through hands-on experience. My long-term vision is to become a skilled Software &amp; AI Engineer, build impactful technology products, and establish my own technology company.</div>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+let selectedFile=null, cameraStream=null, worker=null;
+const fileInput=$('fileInput'), preview=$('preview'), drop=$('drop'), output=$('output');
+const siteURL='https://zx-publish.github.io/Borno-Lipi/';
+
+$('siteUrl').textContent=siteURL;$('year').textContent=new Date().getFullYear();
+
+// Add your Firebase Web App config here to enable a real cross-device live visitor counter.
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_API_KEY",
+  authDomain: "PASTE_YOUR_PROJECT.firebaseapp.com",
+  databaseURL: "https://PASTE_YOUR_PROJECT-default-rtdb.firebaseio.com",
+  projectId: "PASTE_YOUR_PROJECT",
+  appId: "PASTE_YOUR_APP_ID"
+};
+(function startLiveVisitors(){
+  const countEl=$('visitorCount');
+  const configured=firebaseConfig.apiKey!=="PASTE_YOUR_API_KEY" &&
+    firebaseConfig.projectId!=="PASTE_YOUR_PROJECT" &&
+    firebaseConfig.databaseURL.includes("firebaseio.com");
+  if(!configured || !window.firebase){
+    countEl.textContent='Setup needed';
+    $('visitorPill').title='Firebase Web App config and Realtime Database are required for live visitor counts.';
+    return;
+  }
+  try{
+    if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);
+    const db=firebase.database();
+    const sessionId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():'v-'+Date.now()+'-'+Math.random().toString(36).slice(2);
+    const presenceRef=db.ref('bornoLipiLiveVisitors/'+sessionId);
+    db.ref('.info/connected').on('value',snap=>{
+      if(snap.val()===true){
+        presenceRef.onDisconnect().remove().then(()=>{
+          presenceRef.set({joinedAt:firebase.database.ServerValue.TIMESTAMP});
+        });
+      }
+    });
+    db.ref('bornoLipiLiveVisitors').on('value',snap=>{
+      countEl.textContent=snap.numChildren().toLocaleString();
+    },err=>{countEl.textContent='Unavailable';console.warn('Live visitor counter:',err)});
+  }catch(err){countEl.textContent='Unavailable';console.warn('Firebase setup error:',err)}
+})();
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}
+function setStatus(msg){$('status').textContent=msg}
+function setImage(file){if(!file||!file.type.startsWith('image/')){toast('Please select a valid image file.');return}selectedFile=file;preview.src=URL.createObjectURL(file);preview.classList.remove('hidden');$('dropcontent').classList.add('hidden');$('ocrBtn').disabled=false;setStatus('Image ready: '+file.name)}
+$('chooseBtn').onclick=e=>{e.stopPropagation();fileInput.click()};
+drop.addEventListener('click',e=>{if(e.target===drop||e.target.closest('.dropcontent'))fileInput.click()});
+fileInput.onchange=e=>{if(e.target.files[0])setImage(e.target.files[0]);fileInput.value=''};
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));
+drop.addEventListener('drop',e=>{const f=e.dataTransfer.files[0];if(f)setImage(f)});
+$('removeBtn').onclick=()=>{selectedFile=null;preview.src='';preview.classList.add('hidden');$('dropcontent').classList.remove('hidden');$('ocrBtn').disabled=true;setStatus('Choose an image to get started.')};
+$('cameraBtn').onclick=async()=>{try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'},audio:false});$('video').srcObject=cameraStream;$('cameraBox').classList.remove('hidden');setStatus('Camera is ready.')}catch(e){toast('Camera unavailable. Use image upload or allow camera access on HTTPS/localhost.')}};
+function stopCamera(){if(cameraStream)cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;$('cameraBox').classList.add('hidden')}
+$('stopCameraBtn').onclick=stopCamera;
+$('captureBtn').onclick=()=>{const v=$('video'),c=document.createElement('canvas');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);c.toBlob(blob=>{if(blob)setImage(new File([blob],'borno-camera.jpg',{type:'image/jpeg'}))},'image/jpeg',.94);stopCamera()};
+$('ocrBtn').onclick=async()=>{if(!selectedFile)return;const lang=$('language').value;$('ocrBtn').disabled=true;$('progress').style.display='block';$('bar').style.width='2%';setStatus('Preparing OCR engine… This may take a little time on first use.');try{if(worker){await worker.terminate();worker=null}worker=await Tesseract.createWorker(lang,1,{logger:m=>{if(m.status){setStatus(m.status+(m.progress!==undefined?' · '+Math.round(m.progress*100)+'%':''));$('bar').style.width=Math.max(2,Math.round((m.progress||0)*100))+'%'}}});const result=await worker.recognize(selectedFile);output.value=result.data.text.trim();updateStats();$('bar').style.width='100%';setStatus('Done! Review the extracted text and edit if needed.');toast('Text extracted successfully.')}catch(err){console.error(err);setStatus('OCR failed. Check your internet connection and try again.');toast('Could not process this image.')}finally{$('ocrBtn').disabled=false;setTimeout(()=>$('progress').style.display='none',1200)}};
+function updateStats(){const t=output.value.trim();$('chars').textContent=output.value.length.toLocaleString();$('words').textContent=(t?t.split(/\s+/u).length:0).toLocaleString()}
+output.addEventListener('input',updateStats);updateStats();
+$('copyBtn').onclick=async()=>{if(!output.value){toast('There is no text to copy.');return}try{await navigator.clipboard.writeText(output.value);toast('Text copied!')}catch(e){output.select();document.execCommand('copy');toast('Text copied!')}};
+function downloadBlob(blob,name){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+$('txtBtn').onclick=()=>{if(!output.value){toast('There is no text to download.');return}downloadBlob(new Blob(['\ufeff',output.value],{type:'text/plain;charset=utf-8'}),'borno-lipi-text.txt');toast('TXT downloaded.')};
+$('pdfBtn').onclick=async()=>{
+ if(!output.value.trim()){toast('There is no text to export.');return}
+ if(!window.jspdf){toast('PDF library did not load. Check internet.');return}
+ const btn=$('pdfBtn');btn.disabled=true;btn.textContent='Preparing…';
+ try{
+  await document.fonts.load('28px "Hind Siliguri"');
+  await document.fonts.ready;
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({unit:'pt',format:'a4',compress:true});
+  const pageW=595.28,pageH=841.89,scale=2,canvasW=1240,canvasH=1754;
+  const margin=112,top=145,bottom=145,lineHeight=46;
+  const fontStack='"Hind Siliguri","Noto Sans Bengali",sans-serif';
+  const source=output.value.replace(/\r\n?/g,'\n');
+  const measureCanvas=document.createElement('canvas');
+  const mctx=measureCanvas.getContext('2d');
+  mctx.font='28px '+fontStack;
+  const maxWidth=canvasW-margin*2;
+  const lines=[];
+  for(const paragraph of source.split('\n')){
+   if(paragraph===''){lines.push('');continue}
+   let current='';
+   for(const word of paragraph.split(/(\s+)/u)){
+    if(!word)continue;
+    const candidate=current+word;
+    if(current && mctx.measureText(candidate).width>maxWidth){lines.push(current.trimEnd());current=word.trimStart()}
+    else current=candidate;
+   }
+   lines.push(current.trimEnd());
+  }
+  const usable=canvasH-top-bottom;
+  const linesPerPage=Math.max(1,Math.floor(usable/lineHeight));
+  const chunks=[];
+  for(let i=0;i<lines.length;i+=linesPerPage)chunks.push(lines.slice(i,i+linesPerPage));
+  if(!chunks.length)chunks.push(['']);
+  chunks.forEach((pageLines,index)=>{
+   const canvas=document.createElement('canvas');canvas.width=canvasW;canvas.height=canvasH;
+   const ctx=canvas.getContext('2d');
+   ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvasW,canvasH);
+   // Light, diagonal three-colour brand watermark.
+   ctx.save();ctx.translate(canvasW/2,canvasH/2);ctx.rotate(-Math.PI/5);
+   const wm=ctx.createLinearGradient(-480,0,480,0);
+   wm.addColorStop(0,'rgba(139,72,220,0.13)');
+   wm.addColorStop(.5,'rgba(255,145,205,0.13)');
+   wm.addColorStop(1,'rgba(55,112,235,0.13)');
+   ctx.fillStyle=wm;ctx.textAlign='center';ctx.textBaseline='middle';
+   ctx.font='800 104px "DM Sans",sans-serif';ctx.fillText('BORNO-LIPI',0,0);
+   ctx.font='600 42px "Hind Siliguri",sans-serif';ctx.fillText('Borno-লিপি',0,92);
+   ctx.restore();
+   ctx.fillStyle='#172238';ctx.textAlign='left';ctx.textBaseline='top';
+   ctx.font='700 25px "Hind Siliguri",sans-serif';ctx.fillText('Borno-লিপি  |  OCR Document',margin,58);
+   ctx.strokeStyle='#dce3ef';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(margin,105);ctx.lineTo(canvasW-margin,105);ctx.stroke();
+   ctx.font='28px '+fontStack;ctx.fillStyle='#172033';ctx.textAlign='left';ctx.textBaseline='top';
+   let y=top;
+   for(const line of pageLines){if(line)ctx.fillText(line,margin,y);y+=lineHeight}
+   ctx.strokeStyle='#dce3ef';ctx.beginPath();ctx.moveTo(margin,canvasH-105);ctx.lineTo(canvasW-margin,canvasH-105);ctx.stroke();
+   ctx.font='18px "DM Sans",sans-serif';ctx.fillStyle='#65738a';ctx.textBaseline='alphabetic';
+   ctx.textAlign='left';ctx.fillText('https://zx-publish.github.io/Borno-Lipi/',margin,canvasH-65);
+   ctx.textAlign='right';ctx.fillText('Authorized by Alpha.HR',canvasW-margin,canvasH-65);
+   ctx.textAlign='center';ctx.fillText((index+1)+' / '+chunks.length,canvasW/2,canvasH-30);
+   const img=canvas.toDataURL('image/jpeg',.94);
+   if(index>0)doc.addPage();
+   doc.addImage(img,'JPEG',0,0,pageW,pageH,undefined,'FAST');
+  });
+  doc.save('Borno-Lipi-OCR.pdf');toast('Bengali-ready branded PDF downloaded.');
+ }catch(err){console.error(err);toast('PDF export failed. Please try again.')}
+ finally{btn.disabled=false;btn.textContent='↓ PDF'}
+};
+
+
+const appPage=$('appPage'),developerPage=$('developerPage'),floatingDev=$('openDeveloper');
+function showDeveloper(){appPage.classList.add('hidden');developerPage.classList.remove('hidden');floatingDev.classList.add('hidden');document.body.classList.add('developer-mode');window.scrollTo(0,0);if(location.hash!=='#developer')history.pushState({page:'developer'},'','#developer')}
+function showApp(){developerPage.classList.add('hidden');appPage.classList.remove('hidden');floatingDev.classList.remove('hidden');document.body.classList.remove('developer-mode');window.scrollTo(0,0);if(location.hash)history.pushState({page:'app'},'',location.pathname+location.search)} 
+window.addEventListener('popstate',()=>{if(location.hash==='#developer'){appPage.classList.add('hidden');developerPage.classList.remove('hidden');floatingDev.classList.add('hidden');document.body.classList.add('developer-mode')}else{developerPage.classList.add('hidden');appPage.classList.remove('hidden');floatingDev.classList.remove('hidden');document.body.classList.remove('developer-mode')}})
+floatingDev.addEventListener('click',showDeveloper);
+$('backToApp').addEventListener('click',showApp);
+const englishBio=$('developerBio').textContent;
+const banglaBio='আমি একজন প্রযুক্তিপ্রেমী সফটওয়্যার ডেভেলপার, যার মূল আগ্রহ আধুনিক, উদ্ভাবনী এবং ব্যবহারবান্ধব ডিজিটাল সমাধান তৈরি করা। আমার আগ্রহের ক্ষেত্রগুলোর মধ্যে রয়েছে ওয়েব ডেভেলপমেন্ট, সফটওয়্যার ইঞ্জিনিয়ারিং, কৃত্রিম বুদ্ধিমত্তা (AI), মেশিন লার্নিং, মোবাইল অ্যাপ্লিকেশন ডেভেলপমেন্ট, সাইবার সিকিউরিটি, নেটওয়ার্কিং, ক্লাউড কম্পিউটিং, ডেটাবেজ ম্যানেজমেন্ট এবং UI/UX ডিজাইন। HTML, CSS, JavaScript, PHP, Laravel, Node.js, Firebase ও MySQL-এর মতো প্রযুক্তি নিয়ে কাজ করতে আমি আগ্রহী। বাস্তবভিত্তিক প্রজেক্ট তৈরি, নতুন প্রযুক্তি অন্বেষণ এবং নিয়মিত নিজের দক্ষতা উন্নয়নের মাধ্যমে আমি একজন দক্ষ সফটওয়্যার ও AI ইঞ্জিনিয়ার হিসেবে নিজেকে গড়ে তুলতে চাই। ভবিষ্যতে উদ্ভাবনী প্রযুক্তিপণ্য তৈরি এবং নিজস্ব প্রযুক্তি প্রতিষ্ঠান প্রতিষ্ঠা করাই আমার দীর্ঘমেয়াদি লক্ষ্য।';
+$('readEnglish').addEventListener('click',()=>{$('developerBio').textContent=englishBio;$('developerBio').lang='en';$('readEnglish').classList.add('active');$('readBangla').classList.remove('active')});
+$('readBangla').addEventListener('click',()=>{$('developerBio').textContent=banglaBio;$('developerBio').lang='bn';$('readBangla').classList.add('active');$('readEnglish').classList.remove('active')});
+if(location.hash==='#developer')showDeveloper();
+
+
+</script>
+</body>
+</html>
